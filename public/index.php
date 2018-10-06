@@ -11,7 +11,19 @@ main::start();
 class main {
 
     static public function start() {
-        echo 'test';
+
+        $file = fopen( "studentinfo.csv",  "r");
+
+        while (! feof($file))
+        {
+
+            $record [] = fgetcsv($file);
+
+            $record [] = $record;
+        }
+
+        fclose($file);
+        print_r($record);
 
 
     }
@@ -19,3 +31,5 @@ class main {
 
 
 }
+
+
