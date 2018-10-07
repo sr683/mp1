@@ -1,12 +1,12 @@
 <html>
 
-<head>
-
-    <br>
+ <head>
 
 
 
-<div class="jumbotron" style="text-align: center;">
+
+
+    <div class="jumbotron" style="text-align: center;">
 
 
     <h1> Shafiur Rahman</h1>
@@ -16,10 +16,10 @@
 
     <br>
 
-</head>
+   </head>
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
 </html>
@@ -52,7 +52,7 @@ class html {
     public static function generateTable ($records) {
 
         $count = 0;
-        foreach ($records as $record);
+        foreach ($records as $record)
         {
             if ($count == 0) {
 
@@ -62,15 +62,16 @@ class html {
 
                 $values = array_values($array);
 
-                print_r($fields);
+                self::generateHeader($fields);
+                self::generateValues ($values);
 
-                print_r($values);
 
             } else {
 
                 $array = $record->returnArray();
                 $values = array_values($array);
-                print_r($values);
+
+                self:: generateValues($values);
 
             }
             $count++;
@@ -78,12 +79,12 @@ class html {
         }
     }
 
-}
 
-public static function generateHeader($fields)
+
+    public static function generateHeader($fields)
 {
 
-    echo '<html> <body> <table class="table table-bordered"><thead><tr>';
+      echo '<html> <body> <table class="table table-bordered"><thead><tr>';
 
     $y = count($fields);
 
@@ -97,22 +98,23 @@ public static function generateHeader($fields)
     echo '</tr></thead>';
 }
 
-Public static function generateValues ($values){
-
-    $y = count($values);
-
-    echo 'tr';
-
-    for($z = 0; $z; < $y; $z++)
+    static public function generateValues ($values)
     {
+
+        $y = count($values);
+
+        echo 'tr';
+
+        for ($z = 0; $z < $y; $z++) {
+
         $txt = $values [$z];
 
-        echo '<td>' .$txt.'</td>';
+        echo '<td>' . $txt . '</td>';
     }
 
 
-    echo '</tr></body> </html>';
-
+                echo '</tr></body> </html>';
+    }
 }
 
 
@@ -187,7 +189,3 @@ class recordFactory {
         return $record;
     }
 }
-
-
-
-
