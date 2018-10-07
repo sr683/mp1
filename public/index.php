@@ -38,7 +38,6 @@ class main {
         $records = csv::getRecords($filename);
         $table = html::generateTable($records);
 
-
     }
 
 }
@@ -59,7 +58,7 @@ class html {
                 $values = array_values($array);
 
                 self::generateHeader($fields);
-                self::generateValues ($values);
+                self::generateValues($values);
 
 
             } else {
@@ -67,7 +66,7 @@ class html {
                 $array = $record->returnArray();
                 $values = array_values($array);
 
-                self:: generateValues($values);
+                self::generateValues($values);
 
             }
             $count++;
@@ -76,30 +75,28 @@ class html {
     }
 
 
+    public static function generateHeader($fields){
 
-    public static function generateHeader($fields)
-{
-
-      echo '<html> <body> <table class="table table-bordered"><th><tr>';
+      echo '<html><body><table class="table table-bordered"><thead><tr>'; //made change
 
     $y = count($fields);
 
     for ($x = 0; $x < $y; $x++){
 
-        $num = $fields[$x];
+        $head = $fields[$x]; //made change
 
-        echo '<th>' . $num . '</th>';
+        echo '<th>' . $head . '</th>'; //made change
     }
 
-    echo '</tr></td>';
+    echo '</tr></thead>'; //made change
 }
 
-    static public function generateValues ($values)
+    static public function generateValues($values)
     {
 
         $y = count($values);
 
-        echo 'tr';
+        echo '<tr>'; //made change
 
         for ($z = 0; $z < $y; $z++) {
 
@@ -109,7 +106,7 @@ class html {
     }
 
 
-                echo '</tr></body> </html>';
+                echo '</tr></body></html>';
     }
 }
 
@@ -119,22 +116,23 @@ class csv {
 
     static public function getRecords($filename) {
 
-        $file = fopen( $filename,"r");
-        $fieldNames = array ();
+        $file = fopen($filename,'r');
+
+        $fieldNames = array();
+
         $count=0;
 
-        while (! feof($file))
-        {
+        while (! feof($file)){
 
-            $record  = fgetcsv($file);
+            $record = fgetcsv($file);
+
             if ($count == 0) {
 
                 $fieldNames = $record;
 
-            }
-            else {
+            } else {
 
-                $records[] = recordFactory::create ($fieldNames, $record);
+                $records[] = recordFactory::create($fieldNames, $record);
             }
 
             $count++;
@@ -168,7 +166,7 @@ class record {
         return $array;
 }
 
-    public function createProperty ($name = 'studentID', $value = "0001") {
+    public function createProperty ($name = 'studentID', $value = '0001') {
 
         $this->{$name} = $value;
 
@@ -179,9 +177,9 @@ class record {
 
 class recordFactory {
 
-    public static function create (Array $fieldNames = null, Array $values= null) {
+    public static function create (Array $fieldNames = null, Array $record = null) { //made change
 
-        $record = new record($fieldNames, $values);
+        $record = new record($fieldNames, $record); //made change
         return $record;
     }
 }
