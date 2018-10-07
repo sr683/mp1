@@ -1,10 +1,6 @@
 <html>
 
- <head>
-
-
-
-
+  <head>
 
     <h1> Shafiur Rahman</h1>
     <h2>IS-601 Mini Project </h2>
@@ -38,7 +34,7 @@ main::start( "studentinfo.csv");
 class main {
 
     static public function start($filename) {
-        
+
         $records = csv::getRecords($filename);
         $table = html::generateTable($records);
 
@@ -84,7 +80,7 @@ class html {
     public static function generateHeader($fields)
 {
 
-      echo '<html> <body> <table class="table table-bordered"><td><tr>';
+      echo '<html> <body> <table class="table table-bordered"><th><tr>';
 
     $y = count($fields);
 
@@ -119,15 +115,15 @@ class html {
 
 
 class csv {
-    
-    
+
+
     static public function getRecords($filename) {
-        
+
         $file = fopen( $filename,"r");
         $fieldNames = array ();
         $count=0;
 
-        while (! feof($file)) 
+        while (! feof($file))
         {
 
             $record  = fgetcsv($file);
@@ -148,7 +144,7 @@ class csv {
 
         return $records;
     }
-    
+
 }
 
 class record {
@@ -157,7 +153,7 @@ class record {
     {
         $record = array_combine ($fieldNames, $values);
 
-        foreach ($record as $property=> $value) {
+        foreach ($record as $property => $value) {
 
             $this->createProperty($property, $value);
 
@@ -172,7 +168,7 @@ class record {
         return $array;
 }
 
-    public function createProperty ($name = 'student ID', $value = "0001") {
+    public function createProperty ($name = 'studentID', $value = "0001") {
 
         $this->{$name} = $value;
 
