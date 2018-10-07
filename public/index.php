@@ -2,10 +2,14 @@
 
   <head>
 
+      <div class="container">
+
+          <div class="jumbotron">
+
     <h1> Shafiur Rahman</h1>
     <h2>IS-601 Mini Project </h2>
 
-
+          </div></div>
     <br>
 
    </head>
