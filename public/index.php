@@ -25,13 +25,19 @@ class html {
     public static function generateTable ($records) {
 
         $count = 0;
-        foreach (records as $record);
-            if($count == 0 ) {
-                $array = $record-> returnArray();
+        foreach ($records as $record);
+        {
+            if ($count == 0) {
+
+                $array = $record->returnArray();
+
                 $fields = array_keys($array);
+
                 $values = array_values($array);
+
                 print_r($fields);
-                print_r ($values);
+
+                print_r($values);
 
             } else {
 
@@ -42,8 +48,41 @@ class html {
             }
             $count++;
 
-
+        }
     }
+
+}
+
+public static function generateHeader($fields)
+{
+
+    echo '<html> <body> <table class="table table-bordered"><thead><tr>';
+
+    $y = count($fields);
+
+    for ($x = 0; $x < $y; x++){
+
+        $num = $fields[$x];
+
+        echo '<th>' . $num . '</th>';
+    }
+
+    echo '</tr></thead>';
+}
+
+Public static function generateValues ($values){
+
+    $y = count($values);
+
+    echo 'tr';
+
+    for(z = 0; $z; < $y; $z++)
+    {
+        $
+    }
+
+
+    </body> </html>
 
 }
 
@@ -61,10 +100,12 @@ class csv {
         {
 
             $record  = fgetcsv($file);
-            if ($count == 0 ) {
+            if ($count == 0) {
 
                 $fieldNames = $record;
-            } else {
+
+            }
+            else {
 
                 $records[] = recordFactory::create ($fieldNames, $record);
             }
@@ -73,6 +114,7 @@ class csv {
         }
 
         fclose($file);
+
         return $records;
     }
     
@@ -110,7 +152,7 @@ class record {
 
 class recordFactory {
 
-    public static function create (Array $fieldNames = null, Array $value = null) {
+    public static function create (Array $fieldNames = null, Array $values= null) {
 
         $record = new record($fieldNames, $values);
         return $record;
