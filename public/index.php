@@ -51,8 +51,37 @@ class csv {
     
 }
 
+class record {
 
-class recordFactory 
+    public function __construct (Array $fielsNames = null, $value = null)
+    {
+        $record = array_combine ($filedNames, $value);
+
+        foreach ($record as $property=> $value) {
+
+            $this->createProperty($property, $value);
+
+        }
+
+    }
+
+    public function return Array () {
+
+        $array = (array) $this;
+
+        return $array;
+}
+
+    public function createProperty ($name = 'student ID', $value = "0001") {
+
+        $this->{$name} = $value;
+
+    }
+
+}
+
+
+class recordFactory
 
 
 
