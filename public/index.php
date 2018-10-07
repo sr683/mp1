@@ -1,3 +1,30 @@
+<html>
+
+<head>
+
+    <br>
+
+
+
+<div class="jumbotron" style="text-align: center;">
+
+
+    <h1> Shafiur Rahman</h1>
+    <h2>IS-601 Mini Project </h2>
+
+    </div>
+
+    <br>
+
+</head>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+</html>
+
+
 <?php
 /**
  * Created by PhpStorm.
@@ -60,7 +87,7 @@ public static function generateHeader($fields)
 
     $y = count($fields);
 
-    for ($x = 0; $x < $y; x++){
+    for ($x = 0; $x < $y; $x++){
 
         $num = $fields[$x];
 
@@ -76,13 +103,15 @@ Public static function generateValues ($values){
 
     echo 'tr';
 
-    for(z = 0; $z; < $y; $z++)
+    for($z = 0; $z; < $y; $z++)
     {
-        $
+        $txt = $values [$z];
+
+        echo '<td>' .$txt.'</td>';
     }
 
 
-    </body> </html>
+    echo '</tr></body> </html>';
 
 }
 
