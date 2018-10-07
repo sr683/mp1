@@ -13,7 +13,7 @@ class main {
     static public function start($filename) {
         
         $records = csv::getRecords($filename); 
-        print_r($records);           
+
 
     }
 
@@ -24,18 +24,35 @@ class csv {
     
     static public function getRecords($filename) {
         
-        $file = fopen( $filename, "r");
+        $file = fopen( $filename,"r");
+        $fieldNames = array ();
+        $count=0;
 
         while (! feof($file)) 
         {
 
             $record  = fgetcsv($file);
+            if ($count == 0 ) {
+
+                $fileNames = $records;
+            } else {
+
+                $records[] = recordFactory::create ($fieldNames, $record);
+            }
+
+            $count++;
 
             $records [] = $record;
         }
 
         fclose($file);
-        return$records;
+        return $records;
     }
     
 }
+
+
+class recordFactory 
+
+
+
