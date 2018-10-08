@@ -79,18 +79,18 @@ class html {
 
     public static function generateHeader($fields){
 
-      echo '<html><body><table class="table table-bordered"><thead><tr>'; //made change
+      echo '<html><body><table class="table table-bordered"><thead><tr>';
 
     $y = count($fields);
 
     for ($x = 0; $x < $y; $x++){
 
-        $head = $fields[$x]; //made change
+        $head = $fields[$x];
 
-        echo '<th>' . $head . '</th>'; //made change
+        echo '<th>' . $head . '</th>';
     }
 
-    echo '</tr></thead>'; //made change
+    echo '</tr></thead>';
 }
 
     static public function generateValues($values)
@@ -98,7 +98,7 @@ class html {
 
         $y = count($values);
 
-        echo '<tr>'; //made change
+        echo '<tr>';
 
         for ($z = 0; $z < $y; $z++) {
 
@@ -179,9 +179,9 @@ class record {
 
 class recordFactory {
 
-    public static function create (Array $fieldNames = null, Array $record = null) { //made change
+    public static function create (Array $fieldNames = null, Array $record = null) {
 
-        $record = new record($fieldNames, $record); //made change
+        $record = new record($fieldNames, $record);
         return $record;
     }
 }
