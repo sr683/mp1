@@ -79,7 +79,7 @@ class html {
 
     public static function generateHeader($fields){
 
-      echo '<html><body><table class="table table-bordered"><thead><tr>';
+      echo '<html><body><table class="table table-striped"><thead><tr>';
 
     $y = count($fields);
 
